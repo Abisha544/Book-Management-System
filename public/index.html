@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <span class="brand-icon">📚</span>
+        <div>
+          <h1>Book Management</h1>
+          <p>Manage your book collection</p>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-value" id="total-books">0</span>
+          <span class="stat-label">Books</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="total-value">₹0</span>
+          <span class="stat-label">Total Value</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Form -->
+    <section class="card">
+      <h2 id="form-title">Add New Book</h2>
+      <form id="book-form">
+        <input type="hidden" id="book-id" />
+        <div class="form-grid">
+          <div class="field">
+            <label for="title">Title</label>
+            <input type="text" id="title" placeholder="Book title" required />
+          </div>
+          <div class="field">
+            <label for="author">Author</label>
+            <input type="text" id="author" placeholder="Author name" required />
+          </div>
+          <div class="field">
+            <label for="price">Price (₹)</label>
+            <input type="number" id="price" placeholder="0" min="0" step="0.01" required />
+          </div>
+        </div>
+        <div class="actions">
+          <button type="submit" id="submit-btn" class="btn btn-primary">Add Book</button>
+          <button type="button" id="cancel-btn" class="btn btn-secondary hidden">Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Books -->
+    <section class="card">
+      <div class="card-header">
+        <h2>All Books</h2>
+        <input type="search" id="search-input" class="search" placeholder="Search by title or author..." />
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Price</th>
+              <th class="right">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="book-list"></tbody>
+        </table>
+      </div>
+
+      <div id="empty-state" class="empty hidden">
+        <p>No books yet. Add your first book above.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
